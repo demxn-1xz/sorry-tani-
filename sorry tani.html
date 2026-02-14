@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For meri pyaari Tani 💙</title>
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#121a2e;
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background: radial-gradient(900px 650px at 20% 10%, rgba(125,211,252,.18), transparent 55%),
+                  radial-gradient(900px 650px at 80% 20%, rgba(167,139,250,.18), transparent 55%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+    .wrap{width:min(860px, 100%);}
+    .card{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .page{display:none; padding:32px 28px;}
+    .page.active{display:block;}
+
+    h1{
+      margin:8px 0 12px;
+      font-size: clamp(26px, 4vw, 40px);
+      letter-spacing:-0.02em;
+      line-height:1.15;
+    }
+    p{margin:0; line-height:1.6; color:var(--muted); font-size:16px;}
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    button{
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      padding:11px 14px;
+      border-radius: 14px;
+      font-size:14px;
+      transition: transform .06s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+    }
+    button:hover{background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22);}
+    button:active{transform: translateY(1px);}
+    .primary{
+      border:none;
+      background: linear-gradient(135deg, rgba(125,211,252,.92), rgba(167,139,250,.92));
+      color:#0b1220;
+      font-weight:800;
+    }
+    .secondary{
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+    .hint{
+      margin-top:14px;
+      font-size:15px;
+      color: rgba(255,255,255,.78);
+      min-height: 22px;
+    }
+    .small{
+      margin-top:14px;
+      font-size:12px;
+      color: rgba(255,255,255,.62);
+    }
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin:18px 0;
+    }
+    .main-img{
+      display:block;
+      max-width:240px;
+      width:100%;
+      margin-top:16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 40px rgba(0,0,0,.25);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+
+      <!-- PAGE 1 -->
+      <div class="page active" id="page1">
+        <h1>I'm sorry, pleeeease maaf kar de? 😭</h1>
+
+        <img id="mainImg" class="main-img" src="sad cat.jpeg" alt="cat" />
+
+        <div class="hint" id="pleaseHint"></div>
+
+        <div class="btns">
+          <button class="primary" id="opt1">thike maaf kiya</button>
+          <button class="secondary" id="opt2">nikal laudi</button>
+        </div>
+
+        <p class="small">(option 2 pe click karegi toh main bheek maangungi 🤝)</p>
+      </div>
+
+      <!-- PAGE 2 -->
+      <div class="page" id="page2">
+        <h1>THANK YOU!! I'm sorry and I love you a lot bbg 😭🫶</h1>
+
+        <!-- HAPPY CAT GIF UNDER THANK YOU -->
+        <img src="happy cat.gif" class="main-img" alt="happy cat gif" />
+
+        <div class="divider"></div>
+
+        <p>aage aur bhi hai:</p>
+
+        <!-- ME GOOFY IMAGE UNDER "AAGE AUR BHI HAI" -->
+        <img src="me goofy.jpeg" class="main-img" alt="me goofy" />
+
+        <div class="btns">
+          <button class="primary" id="toPage3">next →</button>
+        </div>
+      </div>
+
+      <!-- PAGE 3 -->
+      <div class="page" id="page3">
+        <h1>Boards phod ke aana! 95+ aapke honge madam ji &lt;3</h1>
+        <p>me believe in you</p>
+        <p>(even if you don't)</p>
+
+        <img src="enc cat.png" class="main-img" alt="encouragement cat" />
+
+        <div class="btns">
+          <button class="primary" id="toPage4">last page →</button>
+        </div>
+      </div>
+
+      <!-- PAGE 4 -->
+      <div class="page" id="page4">
+        <h1>Bye byee!!</h1>
+        <p>Now go study bb, mujhse zyada laane hai ok?</p>
+
+        <img src="kiss cat.gif" class="main-img" alt="kiss cat gif" />
+
+        <div class="btns">
+          <button class="secondary" id="restart">restart</button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    function showPage(id){
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    const pleaseHint = document.getElementById('pleaseHint');
+    const opt1 = document.getElementById('opt1');
+    const opt2 = document.getElementById('opt2');
+    const mainImg = document.getElementById('mainImg');
+
+    let noCount = 0;
+    let waitingForYes = false;
+
+    const escalationTexts = [
+      "please?",
+      "pleeease?",
+      "PLEEEEEASE? 🥺"
+    ];
+
+    opt1.addEventListener('click', () => {
+      if (waitingForYes){
+        waitingForYes = false;
+        if (mainImg) mainImg.src = "happy cat.gif";
+        showPage('page2');
+        return;
+      }
+      if (mainImg) mainImg.src = "happy cat.gif";
+      showPage('page2');
+    });
+
+    opt2.addEventListener('click', () => {
+      noCount++;
+
+      const idx = Math.min(noCount - 1, escalationTexts.length - 1);
+      pleaseHint.textContent = escalationTexts[idx];
+
+      if (mainImg) mainImg.src = "crying cat.jpeg";
+
+      waitingForYes = true;
+    });
+
+    document.getElementById('toPage3').addEventListener('click', () => showPage('page3'));
+    document.getElementById('toPage4').addEventListener('click', () => showPage('page4'));
+    document.getElementById('restart').addEventListener('click', () => {
+      noCount = 0;
+      waitingForYes = false;
+      pleaseHint.textContent = "";
+      if (mainImg) mainImg.src = "sad cat.jpeg";
+      showPage('page1');
+    });
+  </script>
+</body>
+</html>
